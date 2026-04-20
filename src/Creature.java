@@ -3,6 +3,10 @@ public class Creature {
     public String name;
     public String action;
 
+    Creature(float health, String name){
+        this.health = health;
+        this.name = name;
+    }
 
     // Returns the damage done by the Creature
     public float attack() {
