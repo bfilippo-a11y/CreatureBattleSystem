@@ -13,7 +13,7 @@ public class EarthCreature extends Creature{
         }
 
         // otherwise, do damage between 5-15
-        float power = Rand.randomFloat(10, 25);
+        float power = Rand.randomFloat(15, 25);
         action = name + " attacked with power " + power + "!";
         return power;
     }

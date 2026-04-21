@@ -1,5 +1,18 @@
+import java.util.ArrayList;
+
 public class BattleSystem {
-    public void battle(Creature a, Creature b) {
+
+    private void randomPlayers(ArrayList <Creature> creatures){
+        for (int i=0; i<1; i++){
+            creatures.remove(Rand.randomInt(0, creatures.size()));
+        }
+
+
+    }
+
+    private void battle(ArrayList <Creature> creatures) {
+        Creature a = creatures.get(0);
+        Creature b = creatures.get(1);
         while (a.health > 0 && b.health > 0) {
             float attackPower = a.attack();
             b.defend(attackPower);
@@ -15,5 +28,10 @@ public class BattleSystem {
             a = b;
             b = temp;
         }
+    }
+
+    public void randomBattle(ArrayList <Creature> creatures) {
+        randomPlayers(creatures);
+        battle(creatures);
     }
 }
