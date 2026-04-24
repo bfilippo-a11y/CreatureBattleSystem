@@ -13,7 +13,7 @@ public class BattleSystem {
     private void battle(ArrayList <Creature> creatures) {
         Creature a = creatures.get(0);
         Creature b = creatures.get(1);
-        while (a.health > 0 && b.health > 0) {
+        while (a.getHealth() > 0 && b.getHealth() > 0) {
             float attackPower = a.attack();
             b.defend(attackPower);
             System.out.println(a.readAction());

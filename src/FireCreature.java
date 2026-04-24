@@ -5,31 +5,12 @@ public class FireCreature extends Creature{
 
     @Override
     // Returns the damage done by the Creature
-    public float attack() {
-
-        if (Rand.randomInt(0, 100)  < 30) {
-            // 30% chance of missing
-            action = name + " missed!";
-            return 0;
-        }
-
-        // otherwise, do damage between 20-30
-        float power = Rand.randomFloat(20, 40);
-        action = name + " attacked with power " + power + "!";
-        return power;
+    public float attack(){
+        return super.attack(30, 20, 40);
     }
 
     @Override
-    public void defend(float incomingPower) {
-
-        // 8 % chance of reducing damage taken
-        if (Rand.randomInt(0, 100) < 8) {
-            incomingPower = incomingPower * 0.8f;
-            action = name + " defended and reduced damage taken to " + incomingPower;
-        } else {
-            action = name + " did not defend.";
-        }
-
-        health -= incomingPower;
+    public void defend(float incomingPower){
+        super.defend(incomingPower, 8, 0.8f);
     }
 }
